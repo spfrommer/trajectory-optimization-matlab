@@ -1,2 +1,1 @@
-# trajectory-optimization-matlab
-A repository containing demos of various single-phase numerical trajectory optimization techniques
+A repository containing demos of various single-phase numerical trajectory optimization techniques. All examples are implemented in MATLAB using fmincon and are meant to be read as a tutorial. For more background on trajectory optimization, feel free to visit my blog, [sam.pfrommer.us](http://sam.pfrommer.us/).
