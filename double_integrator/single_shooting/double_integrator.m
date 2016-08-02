@@ -1,5 +1,5 @@
 global gridN
-gridN = 20
+gridN = 20;
 
 tic
 % Minimize the simulation time
@@ -17,8 +17,9 @@ Beq = [];
 lb = [0; ones(gridN, 1) * -10];
 ub = [Inf; ones(gridN, 1) * 30];
 % Options for fmincon
-options = optimset('TolFun', 0.00000001, 'MaxIter', 100000, ...
-                   'MaxFunEvals', 100000);
+options = optimoptions(@fmincon, 'TolFun', 0.00000001, 'MaxIter', 10000, ...
+                       'MaxFunEvals', 100000, 'Display', 'iter', ...
+                       'DiffMinChange', 0.001, 'Algorithm', 'sqp');
 % Solve for the best simulation time + control input
 optimal = fmincon(time_min, x0, A, b, Aeq, Beq, lb, ub, ...
               @double_integrator_constraints, options);
