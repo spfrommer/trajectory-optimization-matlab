@@ -23,10 +23,10 @@ function [ c, ceq ] = double_integrator_constraints( x )
         % The time derivative of the state at the end of the time interval
         xdot_n = [vels(i+1); accs(i+1)];
         
-        % The end position of the time interval calculated using quadrature
+        % The end state of the time interval calculated using quadrature
         xend = x_i + delta_time * (xdot_i + xdot_n) / 2;
-        % Constrain the end position of the current time interval to be
-        % equal to the starting position of the next time interval
+        % Constrain the end state of the current time interval to be
+        % equal to the starting state of the next time interval
         ceq = [ceq ; x_n - xend];
     end
     % Constrain end position to 1 and end velocity to 0
